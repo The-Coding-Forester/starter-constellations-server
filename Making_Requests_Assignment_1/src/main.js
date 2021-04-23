@@ -1,33 +1,35 @@
 const axios = require("../utils/axios");
-const BASE_URL = "http://localhost:5000/constellations";
+const BASE_URL = "http://localhost:5000";
+const constellations_URL = `${BASE_URL}/constellations`;
 
 function index() {
   axios
-    .get(BASE_URL)
+    .get(constellations_URL)
     .then((response) => console.log(response.data));
 }
 
 function create(body) {
   axios
-    .post(BASE_URL, body)
+    .post(constellations_URL, body)
     .then((response) => console.log(response.data));
 }
 
 function show(id) {
   axios
-    .get(`${BASE_URL}/${id}`)
+    .get(`${constellations_URL}/${id}`)
     .then((response) => console.log(response.data));
 }
 
 function update(id, body) {
+  console.log(body);
   axios
-    .put(`${BASE_URL}/${id}`, body)
+    .put(`${constellations_URL}/${id}`, body)
     .then((response) => console.log(response.data));
 }
 
 function destroy(id) {
   axios
-    .delete(`${BASE_URL}/${id}`)
+    .delete(`${constellations_URL}/${id}`)
     .then((response) => console.log(response.data));
 }
 
